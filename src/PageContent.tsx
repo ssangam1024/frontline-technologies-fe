@@ -7,12 +7,12 @@ import { ContactPage } from "./pages/Contact/ContactPage";
 
 export function PageContent() {
   return ( 
-<Routes>
+    <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/careers" element={<CareerPage />} />
         <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+    </Routes>
   );
 }

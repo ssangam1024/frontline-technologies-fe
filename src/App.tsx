@@ -17,6 +17,7 @@ function App() {
     <div className='app'> 
       
       <Header />
+      
       <PageContent />
 
       <Footer />
