@@ -2,15 +2,18 @@ import Frontlinelogo from '../assets/images/FrontlineLogo.png'
 import { Link } from 'react-router-dom';
 
 import './Header.css'
+import { useState } from 'react';
 
 export function Header() {
+    const[isPopupOpen, setIsPopupOpen] = useState(false);
+      
+    const openPopup = () => {
+      setIsPopupOpen(true);
+    }
+    const closePopup = () => {
+      setIsPopupOpen(false);
+    };
 
-      function closePopup() {
-          const popupOverlay = document.getElementById('popupOverlay');
-          if (popupOverlay) {
-              popupOverlay.style.display = 'none';
-          }
-      }
     return (
         <div className = "header ">
       <div className= "header-left">
@@ -18,36 +21,32 @@ export function Header() {
       </div>
 
       <div className="header-right"> 
-                <nav className="nav-links">
-                    {/* <a href="index.html">Home</a>
-                    <a href="getStarted.html">About</a>
-                    <a href="services.html"> Services</a>
-                    <a href="careers.html"> Careers </a>
-                    <a href="contact.html"> Contact </a> */}
-                 
-              <Link to="/">Home</Link>
-              <Link to="/About">About</Link>
-              <Link to="/services">Services</Link>
-              <Link to="/careers">Careers</Link>
-              <Link to="/contact">Contact</Link>
-              
-    
-                </nav>
-                  
-                    <button className="job-button"> <span className="blink-text"> Job-Opening </span> </button>
-                    <a href="#" className="hamburger" id="menu-toggle">&#9776;</a>
+        <nav className="nav-links">
+          
+          <Link to="/">Home</Link>
+          <Link to="/About">About</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/careers">Careers</Link>
+          <Link to="/contact">Contact</Link>
 
-                  <div className="popup-overlay" id="popupOverlay">
-                    <div> <button className="close-btn" onClick={closePopup}>&times;</button> </div>
-                    <div className="popup">
-                        <a href="index.html">Home</a>
-                        <a href="getStarted.html">About</a>
-                        <a href="services.html">Services</a>
-                        <a href="careers.html">Careers</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-            </div>  
+        </nav>
+                  
+        <button className="job-button"> <span className="blink-text"> Job-Opening </span> </button>
+        <button className="hamburger" onClick={openPopup}>&#9776;</button>
+
+        {isPopupOpen && (
+          <div className="popup-overlay">
+             <button className="close-btn" onClick={closePopup}>&times;</button> 
+            <div className="popup">
+                <Link to="/"  onClick={closePopup} >Home</Link>
+                <Link to="/About" onClick={closePopup}>About</Link>
+                <Link to="/services"  onClick={closePopup}>Services</Link>
+                <Link to="/careers" onClick={closePopup}>Careers</Link>
+                <Link to="/contact"  onClick={closePopup}>Contact</Link>
+            </div>
+          </div>  
+        ) } 
       </div> 
     </div>
     )
-} 
+  }
