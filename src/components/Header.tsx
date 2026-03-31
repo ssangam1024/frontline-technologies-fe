@@ -5,6 +5,12 @@ import './Header.css'
 
 export function Header() {
 
+      function closePopup() {
+          const popupOverlay = document.getElementById('popupOverlay');
+          if (popupOverlay) {
+              popupOverlay.style.display = 'none';
+          }
+      }
     return (
         <div className = "header ">
       <div className= "header-left">
@@ -29,6 +35,18 @@ export function Header() {
                 </nav>
                   
                     <button className="job-button"> <span className="blink-text"> Job-Opening </span> </button>
+                    <a href="#" className="hamburger" id="menu-toggle">&#9776;</a>
+
+                  <div className="popup-overlay" id="popupOverlay">
+                    <div> <button className="close-btn" onClick={closePopup}>&times;</button> </div>
+                    <div className="popup">
+                        <a href="index.html">Home</a>
+                        <a href="getStarted.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="careers.html">Careers</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+            </div>  
       </div> 
     </div>
     )

@@ -71,6 +71,10 @@
     .btn {
       width: 90%; 
     }
+    .image-section img{
+      width: 1000px;
+      height: auto;
+    }
   }
   .carousel{
     width: 100%;
@@ -164,7 +168,10 @@
   }
   .glanceContainer{
     display: flex;
+    flex-wrap: wrap;
+    text-align: center;
     justify-content: center;
+    margin-bottom: 20px;
     gap: 40px;
   }
   .glanceBox{
